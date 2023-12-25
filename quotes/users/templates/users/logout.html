@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-signin rounded-3 bg-light">
+    <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3 mt-3">
+            <label for="username" class="form-label">Username:
+                {{ form.username }}
+            </label>
+            <span>{{ form.errors.username }}</span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:
+                {{ form.password }}
+            </label>
+            <span>{{ form.errors.password }}</span>
+        </div>
+
+        <div class="mb-3 text-center">
+            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
